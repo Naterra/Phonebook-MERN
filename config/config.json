@@ -1,0 +1,9 @@
+{
+  "apiPrefix": "",
+  "serverPort": "8001",
+  "db":{
+    "name": "phonebook",
+    "host": "localhost",
+    "port": 27017
+  }
+}
