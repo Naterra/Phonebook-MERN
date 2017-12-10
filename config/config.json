@@ -1,5 +1,5 @@
 {
-  "apiPrefix": "",
+  "apiPrefix": "http://localhost:8001/",
   "serverPort": "8001",
   "db":{
     "name": "phonebook",

@@ -2,6 +2,11 @@
   "name": "phonebook_mern",
   "version": "0.1.0",
   "private": true,
+  "proxy": {
+    "/api/*": {
+      "target": "http://localhost:8001"
+    }
+  },
   "dependencies": {
     "axios": "^0.17.1",
     "express": "^4.16.2",

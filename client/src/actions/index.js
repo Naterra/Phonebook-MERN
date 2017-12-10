@@ -1,8 +1,9 @@
 import axios from "axios";
 import * as types from "./types";
+// import {apiPrefix} from "../../../config/config.json";
 
 // axios.defaults.baseURL = 'http://phonebook.app/new_phonebook/';
-axios.defaults.baseURL = process.env.API_URL;
+axios.defaults.baseURL =  'http://localhost:8001/';
 axios.defaults.headers.post["Content-Type"] =
   "application/x-www-form-urlencoded";
 

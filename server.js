@@ -19,7 +19,7 @@ app.use( bodyParser.json() );
 
 
 // Allow requests from any origin
-//app.use(cors({ origin: '*' }));
+app.use(cors({ origin: '*' }));
 
 
 
