@@ -89,6 +89,7 @@ class RecordsList extends Component {
           <table className="bordered striped highlight  ">
             <thead className="teal lighten-1 white-text ">
               <tr>
+                <th>Avatar</th>
                 <th>Name</th>
                 <th>Company Name</th>
                 <th>Work Phone</th>

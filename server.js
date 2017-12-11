@@ -37,16 +37,16 @@ app.get('/api/get_contacts', (req, res) => {
 
   Contact.find()
     .limit(limit)
-    .skip(0)
+    .skip(page)
     .sort({
       name: 'asc'
     })
     .exec(function(err, contacts) {
 
-      Contact.count().exec(function(err, count) {
+      Contact.count().exec(function(err, total_records) {
         const param = {
           data: contacts,
-          pages_count: count
+          total: total_records
         };
         console.log(param, 'param');
 
@@ -71,7 +71,7 @@ app.get('/api/get_contacts', (req, res) => {
 app.get('/api/generate-fake-data', (req, res) => {
   // res.send({kuku:'yes'});
 
-  for (var i = 0; i < 2; i++) {
+  for (var i = 0; i < 50; i++) {
     console.log('new_cont ' + i);
 
     const contact = new Contact({

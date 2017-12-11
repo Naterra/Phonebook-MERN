@@ -20,6 +20,7 @@ class recordsListItem extends Component {
     const header_text = `Do you want to delete ${contact.name}  ?`;
     return (
       <tr>
+        <td><img className=" circle responsive-img" src={contact.image} /></td>
         <td>{contact.name}</td>
         <td>{contact.company_name}</td>
         <td>{contact.work_phone}</td>
