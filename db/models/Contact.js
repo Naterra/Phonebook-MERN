@@ -4,10 +4,10 @@ const Schema = mongoose.Schema;
 
 const ContactSchema = new Schema({
   name: { type: String },
+  image: { type: String },
   email: { type: String },
   company_name: { type: String },
   category: { type: String },
-  notes: { type: String },
   country: { type: String },
   address: { type: String },
   state: { type: String },

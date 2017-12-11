@@ -1,18 +1,13 @@
-import axios from "axios";
-import * as types from "./types";
+import axios from 'axios';
+import * as types from './types';
 // import {apiPrefix} from "../../../config/config.json";
 
 // axios.defaults.baseURL = 'http://phonebook.app/new_phonebook/';
-axios.defaults.baseURL =  'http://localhost:8001/';
-axios.defaults.headers.post["Content-Type"] =
-  "application/x-www-form-urlencoded";
-
-
+//axios.defaults.baseURL =  'http://localhost:3001/';
+// axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
 
 export function delete_contact(id, callback) {
-    axios
-    .post(`/api/delete_contact`, { id: id })
-    .then(() => callback());
+  axios.post(`/api/delete_contact`, { id: id }).then(() => callback());
 
   return {
     type: types.DELETE_CONTACT,
@@ -48,9 +43,7 @@ export function set_filter_term(term) {
 }
 
 export function saveContact(values, callback) {
-  const request = axios
-    .post(`/api/save_contact`, values)
-    .then(() => callback());
+  const request = axios.post(`/api/save_contact`, values).then(() => callback());
 
   return {
     type: types.SAVE_CONTACT,
@@ -68,17 +61,9 @@ export function fetchContact(id) {
 }
 
 export function fetchContacts(filter) {
-  console.log(filter, "ACTION fetchContacts");
-  //const records_limit = 30;
+  //const request = axios.get(`/api/get_contacts?limit=${filter.limit}&filterBy=${filter.term}&page=${filter.page}`);
 
-  const config = { headers: { "Content-Type": "multipart/form-data" } };
-
-  const request = axios.get(
-    `/api/get_contacts&limit=${filter.limit}&filterBy=${
-      filter.term
-    }&page=${filter.page}`,
-    config
-  );
+  const request = axios.get(`/api/get_contacts`, {params: filter});
 
   return {
     type: types.FETCH_CONTACTS,

@@ -10,7 +10,7 @@ export default function (state=INITIAL_STATE, action){
     switch(action.type){
         case FETCH_CONTACTS:
             console.log(action.payload.data, 'payload');
-            console.log(state, 'state');
+            // console.log(state, 'state');
             return action.payload.data || state  ;
         case DELETE_CONTACT:
             return {
