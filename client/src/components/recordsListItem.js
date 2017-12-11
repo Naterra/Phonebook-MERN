@@ -17,17 +17,17 @@ class recordsListItem extends Component {
 
   render() {
     const { contact } = this.props;
-    const header_text = `Do you want to delete ${contact.FirstName} ${contact.LastName} ?`;
+    const header_text = `Do you want to delete ${contact.name}  ?`;
     return (
       <tr>
-        <td>{contact.FirstName + ' ' + contact.LastName}</td>
-        <td>{contact.CompanyName}</td>
-        <td>{contact.OfficeNo}</td>
-        <td>{contact.MobileNo}</td>
-        <td>{contact.Category}</td>
-        <td>{contact.Notes}</td>
+        <td>{contact.name}</td>
+        <td>{contact.company_name}</td>
+        <td>{contact.work_phone}</td>
+        <td>{contact.cell_phone}</td>
+        <td>{contact.category}</td>
+        <td>{contact.notes}</td>
         <td className="center-align">
-          <Link to={`/edit_contact/${contact.Id}`} className="teal lighten-2 waves-effect waves-light btn btn-small ">
+          <Link to={`/edit_contact/${contact._id}`} className="teal lighten-2 waves-effect waves-light btn btn-small ">
             <i className="material-icons ">create</i>
           </Link>
 
@@ -35,7 +35,7 @@ class recordsListItem extends Component {
             header={header_text}
             actions={
               <div>
-                <Button flat className="modal-action modal-close " waves="light" onClick={e => this.deleteEvent(contact.Id)}>
+                <Button flat className="modal-action modal-close " waves="light" onClick={e => this.deleteEvent(contact._id)}>
                   Yes
                 </Button>
 

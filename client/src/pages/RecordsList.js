@@ -61,10 +61,11 @@ class RecordsList extends Component {
       }
 
       return this.props.contacts.data.map(contact => {
-        return (
+       console.log(contact, 'contact');
+       return (
           <RecordsListItem
             deleteContact={this.deleteContact}
-            key={contact.Id}
+            key={contact._id}
             contact={contact}
           />
         );

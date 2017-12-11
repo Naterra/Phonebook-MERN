@@ -28,28 +28,30 @@ if (process.env.NODE_ENV === 'production') {
 
 app.get('/api/get_contacts', (req, res) => {
   const param = req.query;
-  console.log(param, 'param');
+  // console.log(param, 'param');
 
-  // Contact.find(param).then(data => res.send(data));
-  let perPage = param.limit,
-      page = Math.max(0, param.page);
+  let page = Math.max(0, param.page) - 1;
+  let limit = parseInt(param.limit);
+
+  // console.log(page, 'page');
 
   Contact.find()
-    .select('name')
-    .limit(perPage)
-    .skip(perPage * page)
+    .limit(limit)
+    .skip(0)
     .sort({
       name: 'asc'
     })
-    .exec(function(err, data) {
-      console.log(data, 'data');
-      // Contact.count().exec(function(err, count) {
-      //   res.render('contacts', {
-      //     events: events,
-      //     page: page,
-      //     pages: count / perPage
-      //   });
-      // });
+    .exec(function(err, contacts) {
+
+      Contact.count().exec(function(err, count) {
+        const param = {
+          data: contacts,
+          pages_count: count
+        };
+        console.log(param, 'param');
+
+        res.send(param);
+      });
     });
 
   //Find total
