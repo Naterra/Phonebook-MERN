@@ -26,40 +26,42 @@ if (process.env.NODE_ENV === 'production') {
   //app.use(express.static("client/build"));
 }
 
+app.get('/api/get_contact/:id', (req, res) => {
+    const id = req.params.id;
+    Contact.findById(id).then(data => res.send(data));
+
+
+    //console.log('id+++', id);
+});
+
+
 app.get('/api/get_contacts', (req, res) => {
   const param = req.query;
-  // console.log(param, 'param');
-
   let page = Math.max(0, param.page) - 1;
   let limit = parseInt(param.limit);
 
-  // console.log(page, 'page');
-
-  Contact.find()
+  Contact.find({"name": new RegExp('^'+param.term, "i") })
     .limit(limit)
-    .skip(page)
+    .skip(page * limit)
     .sort({
       name: 'asc'
     })
     .exec(function(err, contacts) {
 
-      Contact.count().exec(function(err, total_records) {
+      Contact.count({"name": new RegExp('^'+param.term, "i") }).exec(function(err, total_records) {
         const param = {
           data: contacts,
-          total: total_records
+          total_records: total_records
         };
-        console.log(param, 'param');
+        //console.log(param, 'param');
 
         res.send(param);
       });
     });
 
-  //Find total
 
-  //Retun object {
-  // contacts:[],
-  // total:123
-  // }
+
+
 
   // find({ occupation: /host/ }).
   // where('name.last').equals('Ghost').
@@ -69,10 +71,7 @@ app.get('/api/get_contacts', (req, res) => {
 });
 
 app.get('/api/generate-fake-data', (req, res) => {
-  // res.send({kuku:'yes'});
-
   for (var i = 0; i < 50; i++) {
-    console.log('new_cont ' + i);
 
     const contact = new Contact({
       name: faker.name.findName(),
@@ -91,8 +90,6 @@ app.get('/api/generate-fake-data', (req, res) => {
 
     contact.save((err, record) => {
       if (err) throw err;
-      console.log('+++ New Contact created');
-      // res.send(record);
     });
   }
   res.redirect('/');

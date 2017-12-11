@@ -3,7 +3,7 @@ import { FETCH_CONTACTS, DELETE_CONTACT } from '../actions/types';
 
 const INITIAL_STATE = {
     data:[],
-    total:0
+    total_records:0
 };
 
 export default function (state=INITIAL_STATE, action){

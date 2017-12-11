@@ -61,7 +61,7 @@ class RecordsList extends Component {
       }
 
       return this.props.contacts.data.map(contact => {
-       console.log(contact, 'contact');
+       //console.log(contact, 'contact');
        return (
           <RecordsListItem
             deleteContact={this.deleteContact}
@@ -104,7 +104,7 @@ class RecordsList extends Component {
           </table>
         </div>
 
-        <Paging total={this.props.contacts.total} />
+        <Paging total_records={this.props.contacts.total_records} />
       </div>
     );
   }

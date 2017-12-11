@@ -52,7 +52,7 @@ export function saveContact(values, callback) {
 }
 
 export function fetchContact(id) {
-  const request = axios.get(`/api/get_contact&id=${id}`);
+  const request = axios.get(`/api/get_contact/${id}`);
 
   return {
     type: types.FETCH_CONTACT,
