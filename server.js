@@ -26,12 +26,25 @@ if (process.env.NODE_ENV === 'production') {
   //app.use(express.static("client/build"));
 }
 
+app.post('/api/save_contact/', (req, res) => {
+const id = req.body._id;
+
+  console.log('req.body', req.body);
+  console.log('Id === ', id);
+
+    const contact = new Contact();
+
+    //contact.save().then(data => res.send(data));
+    contact.findOneAndUpdate({_id: id}, req.body, (err, user) => {
+      console.log(err, 'err');
+      console.log(user, 'user');
+    });
+
+});
+
 app.get('/api/get_contact/:id', (req, res) => {
     const id = req.params.id;
     Contact.findById(id).then(data => res.send(data));
-
-
-    //console.log('id+++', id);
 });
 
 

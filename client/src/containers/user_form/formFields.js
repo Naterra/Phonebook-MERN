@@ -1,28 +1,24 @@
 const fields = {
   pers: [
-    { label: "FirstName", name: "FirstName", reguired: true },
-    { label: "LastName", name: "LastName", reguired: true },
-    { label: "CompanyName", name: "CompanyName" },
-    { label: "Title", name: "Title" },
-    { label: "Category", name: "Category" }
+    { label: "name", name: "name", reguired: true },
+    { label: "Company Name", name: "company_name" },
+    { label: "Title", name: "title" },
+    { label: "Category", name: "category" }
   ],
   contact: [
-    { label: "Email", name: "Email" },
-    { label: "MobileNo", name: "MobileNo" },
-    { label: "HomeNo", name: "HomeNo" },
-    { label: "OfficeNo", name: "OfficeNo" },
-    { label: "OtherNo", name: "OtherNo" },
-    { label: "FaxNo", name: "FaxNo" },
-    { label: "Cell Phone", name: "cellPhone" }
+    { label: "Email", name: "email" },
+    { label: "MobileNo", name: "cell_phone" },
+    { label: "Office Number", name: "work_phone" },
+    { label: "Fax", name: "fax" }
   ],
   address: [
-    { label: "Country", name: "Country" },
-    { label: "City", name: "City" },
-    { label: "State", name: "State" },
-    { label: "Street", name: "Street" },
-    { label: "Zip", name: "Zip" }
+    { label: "Country", name: "country" },
+    { label: "City", name: "city" },
+    { label: "State", name: "state" },
+    { label: "Address", name: "address" },
+    { label: "Zip", name: "zip" }
   ],
-  other: [{ label: "Notes", name: "Notes" }]
+  other: [{ label: "Notes", name: "notes" }]
 };
 
 export default fields;
