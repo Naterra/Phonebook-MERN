@@ -120,6 +120,6 @@ app.get('/api/generate-fake-data', (req, res) => {
 //
 // });
 
-app.listen(serverPort, () => {
+app.listen(app.get('port'), () => {
   console.log(`Server is up and running on port ${serverPort}`);
 });

@@ -3,8 +3,13 @@
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
+  "engines":{
+    "node":"9.0.0",
+    "npm":"5.5.1"
+  },
   "scripts": {
-    "start": "concurrently \"npm run server\" \"npm run client\"",
+    "start": "babel-node server.js",
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
     "server": "nodemon --exec  babel-node server.js",
     "client": "npm run start --prefix client"
   },
