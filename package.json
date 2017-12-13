@@ -2,15 +2,15 @@
   "name": "phonebook_mern",
   "version": "1.0.0",
   "description": "",
-  "main": "server.js",
+  "main": "index.js",
   "engines": {
     "node": "9.0.0",
     "npm": "5.5.1"
   },
   "scripts": {
-    "start": "babel-node server.js",
+    "start": "babel-node index.js",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
-    "server": "nodemon --exec   babel-node server.js",
+    "server": "nodemon --exec   babel-node index.js",
     "client": "npm run start --prefix client",
     "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
   },
@@ -25,12 +25,12 @@
     "body-parser": "^1.18.2",
     "cors": "^2.8.4",
     "express": "^4.16.2",
-    "mongoose": "^4.13.6",
-    "nodemon": "^1.12.5"
+    "mongoose": "^4.13.6"
   },
   "devDependencies": {
     "concurrently": "^3.5.1",
     "babel-preset-react": "^6.24.1",
-    "faker": "^4.1.0"
+    "faker": "^4.1.0",
+    "nodemon": "^1.12.5"
   }
 }
