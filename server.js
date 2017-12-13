@@ -4,6 +4,7 @@ import * as db from './db/db';
 import bodyParser from 'body-parser';
 import { serverPort } from './config/config.json';
 import faker from 'faker';
+import path  from 'path';
 
 import mongoose from 'mongoose';
 const Contact = mongoose.model('Contact');
@@ -21,10 +22,7 @@ app.use(bodyParser.json());
 app.use(cors({ origin: '*' }));
 app.set('port', process.env.PORT || serverPort);
 
-// Express only serves static assets in production
-// if (process.env.NODE_ENV === 'production') {
-//   //app.use(express.static("client/build"));
-// }
+
 
 if(process.env.NODE_ENV === 'production'){
     // Express will serve up production assets
@@ -36,7 +34,8 @@ if(process.env.NODE_ENV === 'production'){
     // if it doesn't recognize the route
     // If express didn't find any route matches listed above,
     // will try to find in client/build
-    const path = require('path');
+    // const path = require('path');
+
     app.get('*', (req, res)=>{
         res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html' ));
 
