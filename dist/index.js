@@ -30,12 +30,12 @@ function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj;
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var Contact = _mongoose2.default.model('Contact');
-
 // Initialization of express application
 var app = (0, _express2.default)();
 
 // Set up connection of database
+
+var Contact = _mongoose2.default.model('Contact');
 db.setUpConnection();
 
 // Using bodyParser middleware
