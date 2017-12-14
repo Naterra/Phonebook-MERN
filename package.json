@@ -8,9 +8,10 @@
     "npm": "5.5.1"
   },
   "scripts": {
-    "start": "./node_modules/.bin/babel-node index.js",
+    "start": "node dist/index.js",
+    "prod:compile_server": "babel server -d dist --presets es2015,stage-2",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
-    "server": "nodemon --exec   babel-node index.js",
+    "server": "nodemon --exec   babel-node server/index.js",
     "client": "npm run start --prefix client",
     "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
   },
