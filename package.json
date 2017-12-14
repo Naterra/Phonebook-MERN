@@ -26,12 +26,12 @@
     "body-parser": "^1.18.2",
     "cors": "^2.8.4",
     "express": "^4.16.2",
-    "mongoose": "^4.13.6"
+    "mongoose": "^4.13.6",
+    "faker": "^4.1.0"
   },
   "devDependencies": {
     "concurrently": "^3.5.1",
     "babel-preset-react": "^6.24.1",
-    "faker": "^4.1.0",
     "nodemon": "^1.12.5"
   }
 }

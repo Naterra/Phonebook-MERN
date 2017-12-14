@@ -5,14 +5,13 @@ import bodyParser from 'body-parser';
 import { serverPort } from '../config/config.json';
 import faker from 'faker';
 
-// Mongo
-import mongoose from 'mongoose';
-const Contact = mongoose.model('Contact');
 
 // Initialization of express application
 const app = express();
 
 // Set up connection of database
+import mongoose from 'mongoose';
+const Contact = mongoose.model('Contact');
 db.setUpConnection();
 
 // Using bodyParser middleware
