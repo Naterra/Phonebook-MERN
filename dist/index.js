@@ -18,10 +18,6 @@ var _bodyParser2 = _interopRequireDefault(_bodyParser);
 
 var _config = require('../config/config.json');
 
-var _faker = require('faker');
-
-var _faker2 = _interopRequireDefault(_faker);
-
 var _mongoose = require('mongoose');
 
 var _mongoose2 = _interopRequireDefault(_mongoose);
@@ -29,6 +25,9 @@ var _mongoose2 = _interopRequireDefault(_mongoose);
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+// import faker from 'faker';
+
 
 // Initialization of express application
 var app = (0, _express2.default)();
@@ -96,28 +95,29 @@ app.get('/api/get_contacts', function (req, res) {
 
 app.get('/api/generate-fake-data', function (req, res) {
 
-  for (var i = 0; i < 50; i++) {
-
-    var contact = new Contact({
-      name: _faker2.default.name.findName(),
-      image: _faker2.default.image.avatar(),
-      email: _faker2.default.internet.email(),
-      company_name: _faker2.default.company.companyName(),
-      category: '',
-      country: _faker2.default.address.country(),
-      address: _faker2.default.address.streetAddress(),
-      state: _faker2.default.address.state(),
-      zip: _faker2.default.address.zipCode(),
-      cell_phone: _faker2.default.phone.phoneNumber(),
-      work_phone: _faker2.default.phone.phoneNumber(),
-      fax: _faker2.default.phone.phoneNumber()
-    });
-
-    contact.save(function (err, record) {
-      if (err) throw err;
-    });
-  }
-  res.redirect('/');
+  //
+  //   for (var i = 0; i < 50; i++) {
+  //
+  //   const contact = new Contact({
+  //     name: faker.name.findName(),
+  //     image: faker.image.avatar(),
+  //     email: faker.internet.email(),
+  //     company_name: faker.company.companyName(),
+  //     category: '',
+  //     country: faker.address.country(),
+  //     address: faker.address.streetAddress(),
+  //     state: faker.address.state(),
+  //     zip: faker.address.zipCode(),
+  //     cell_phone: faker.phone.phoneNumber(),
+  //     work_phone: faker.phone.phoneNumber(),
+  //     fax: faker.phone.phoneNumber()
+  //   });
+  //
+  //   contact.save((err, record) => {
+  //     if (err) throw err;
+  //   });
+  // }
+  // res.redirect('/');
 });
 
 // app.post("/api/save_contact", (req, res) => {
