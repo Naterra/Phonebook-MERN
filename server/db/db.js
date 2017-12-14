@@ -1,5 +1,4 @@
 import mongoose from "mongoose";
-import config from '../config/config.json';
 import './models/Contact';
 
 const Contact = mongoose.model('Contact');

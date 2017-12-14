@@ -8,7 +8,7 @@ var _cors = require('cors');
 
 var _cors2 = _interopRequireDefault(_cors);
 
-var _db = require('../db/db');
+var _db = require('./db/db');
 
 var db = _interopRequireWildcard(_db);
 
@@ -21,10 +21,6 @@ var _config = require('../config/config.json');
 var _faker = require('faker');
 
 var _faker2 = _interopRequireDefault(_faker);
-
-var _path2 = require('path');
-
-var _path3 = _interopRequireDefault(_path2);
 
 var _mongoose = require('mongoose');
 
@@ -99,6 +95,7 @@ app.get('/api/get_contacts', function (req, res) {
 });
 
 app.get('/api/generate-fake-data', function (req, res) {
+
   for (var i = 0; i < 50; i++) {
 
     var contact = new Contact({
@@ -145,10 +142,10 @@ if (process.env.NODE_ENV === 'production') {
   // if it doesn't recognize the route
   // If express didn't find any route matches listed above,
   // will try to find in client/build
-  var _path = require('path');
+  var path = require('path');
 
   app.get('*', function (req, res) {
-    res.sendFile(_path.resolve(__dirname, 'client', 'build', 'index.html'));
+    res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
   });
 }
 
