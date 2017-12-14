@@ -3,7 +3,7 @@ import cors from 'cors';
 import * as db from './db/db';
 import bodyParser from 'body-parser';
 import { serverPort } from '../config/config.json';
-import faker from 'faker';
+// import faker from 'faker';
 
 
 // Initialization of express application
@@ -85,29 +85,29 @@ app.get('/api/get_contacts', (req, res) => {
 
 app.get('/api/generate-fake-data', (req, res) => {
 
-
-    for (var i = 0; i < 50; i++) {
-
-    const contact = new Contact({
-      name: faker.name.findName(),
-      image: faker.image.avatar(),
-      email: faker.internet.email(),
-      company_name: faker.company.companyName(),
-      category: '',
-      country: faker.address.country(),
-      address: faker.address.streetAddress(),
-      state: faker.address.state(),
-      zip: faker.address.zipCode(),
-      cell_phone: faker.phone.phoneNumber(),
-      work_phone: faker.phone.phoneNumber(),
-      fax: faker.phone.phoneNumber()
-    });
-
-    contact.save((err, record) => {
-      if (err) throw err;
-    });
-  }
-  res.redirect('/');
+  //
+  //   for (var i = 0; i < 50; i++) {
+  //
+  //   const contact = new Contact({
+  //     name: faker.name.findName(),
+  //     image: faker.image.avatar(),
+  //     email: faker.internet.email(),
+  //     company_name: faker.company.companyName(),
+  //     category: '',
+  //     country: faker.address.country(),
+  //     address: faker.address.streetAddress(),
+  //     state: faker.address.state(),
+  //     zip: faker.address.zipCode(),
+  //     cell_phone: faker.phone.phoneNumber(),
+  //     work_phone: faker.phone.phoneNumber(),
+  //     fax: faker.phone.phoneNumber()
+  //   });
+  //
+  //   contact.save((err, record) => {
+  //     if (err) throw err;
+  //   });
+  // }
+  // res.redirect('/');
 });
 
 // app.post("/api/save_contact", (req, res) => {
