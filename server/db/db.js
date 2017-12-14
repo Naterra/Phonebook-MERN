@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 import './models/Contact';
 
-const Contact = mongoose.model('Contact');
+// const Contact = mongoose.model('Contact');
 
 export function setUpConnection() {
     mongoose.connect(`mongodb://naterra:305762@ds133746.mlab.com:33746/phonebook`);

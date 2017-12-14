@@ -5,7 +5,7 @@ import bodyParser from 'body-parser';
 import { serverPort } from '../config/config.json';
 import faker from 'faker';
 
-
+// Mongo
 import mongoose from 'mongoose';
 const Contact = mongoose.model('Contact');
 
