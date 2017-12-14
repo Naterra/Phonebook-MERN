@@ -3,8 +3,8 @@ import cors from 'cors';
 import * as db from '../db/db';
 import bodyParser from 'body-parser';
 import { serverPort } from '../config/config.json';
-import faker from 'faker';
-import path  from 'path';
+
+
 
 import mongoose from 'mongoose';
 const Contact = mongoose.model('Contact');
@@ -85,7 +85,9 @@ app.get('/api/get_contacts', (req, res) => {
 });
 
 app.get('/api/generate-fake-data', (req, res) => {
-  for (var i = 0; i < 50; i++) {
+    import faker from 'faker';
+
+    for (var i = 0; i < 50; i++) {
 
     const contact = new Contact({
       name: faker.name.findName(),
