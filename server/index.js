@@ -1,7 +1,7 @@
 import express from 'express';
+import bodyParser from 'body-parser';
 import cors from 'cors';
 import * as db from './db/db';
-import bodyParser from 'body-parser';
 import { serverPort } from '../config/config.json';
 // import faker from 'faker';
 
