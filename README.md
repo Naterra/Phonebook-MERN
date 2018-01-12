@@ -7,7 +7,7 @@ This App was build using MERN stack (Mongo/Express/React/Node).
 
 ## How to start
 
-1. Clone App to your working dirrectory
+1. Clone App to your working directory
 <pre>
 <code>git clone https://github.com/Naterra/phonebook_mern.git && cd phonebook_mern
 </code></pre>
@@ -23,7 +23,7 @@ cd ..
 <pre>
 <code>npm run dev
 </code></pre>
-Your App will be automatically onened at localhost:3000
+Your App will be automatically opened at localhost:3000
 
 ## Deployment
 

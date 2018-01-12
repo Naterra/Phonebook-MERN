@@ -10,6 +10,7 @@ const app = express();
 
 // Set up connection of database
 import mongoose from 'mongoose';
+import './db/models/Contact';
 const Contact = mongoose.model('Contact');
 db.setUpConnection();
 

@@ -1,10 +1,7 @@
 import mongoose from "mongoose";
-import './models/Contact';
+import config from '../../config/config.json';
 
-// const Contact = mongoose.model('Contact');
 
 export function setUpConnection() {
-    mongoose.connect(`mongodb://naterra:305762@ds133746.mlab.com:33746/phonebook`);
-    //mongoose.connect(`mongodb://${config.db.host}:${config.db.port}/${config.db.name}`);
-    //console.log(mongoose, 'mongoose connect !!!');
+    mongoose.connect(`mongodb://${config.db.user}:${config.db.password}@ds${config.db.ds}.mlab.com:${config.db.port}/${config.db.name}`);
 }
