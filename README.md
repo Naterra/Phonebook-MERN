@@ -30,7 +30,10 @@ Your App will be automatically opened at localhost:3000
 1 Compile <b>server/index.js</b> and <b>./client/</b>
 
 Run:
-<code>
-npm run prod:compile_server
-</code>
+<pre>
+<code>npm run prod:compile_server
+npm run prod:compile_client
+git push heroku master
+heroku open</code>
+</pre>
 

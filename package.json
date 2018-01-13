@@ -10,6 +10,7 @@
   "scripts": {
     "start": "node dist/index.js",
     "prod:compile_server": "babel server -d dist --presets es2015,stage-1",
+    "prod:compile_client": "npm run build --prefix client",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
     "server": "nodemon --exec   babel-node server/index.js",
     "client": "npm run start --prefix client",
