@@ -34,9 +34,12 @@ Your App will be automatically opened at localhost:3000
 
 Run:
 <pre>
-<code>npm run prod:compile_server
-npm run prod:compile_client
+<code>npm run prod:compile_server_client
 git push heroku master
 heroku open</code>
 </pre>
+
+## Generate data
+Refill your database with data using Faker API.
+Open http://yourapp.com/api/generate-fake-data and get 50 records in DB.
 
