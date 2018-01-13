@@ -45,6 +45,8 @@ export function set_filter_term(term) {
 export function saveContact(values, callback) {
   const request = axios.post(`/api/save_contact`, values).then(() => callback());
 
+  console.log('request saveContact:', request);
+
   return {
     type: types.SAVE_CONTACT,
     payload: request

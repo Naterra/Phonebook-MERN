@@ -1,4 +1,4 @@
-import { FETCH_CONTACTS, DELETE_CONTACT } from '../actions/types';
+import { FETCH_CONTACTS, DELETE_CONTACT, SAVE_CONTACT } from '../actions/types';
 
 
 const INITIAL_STATE = {

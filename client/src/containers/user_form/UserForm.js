@@ -3,7 +3,7 @@ import _ from 'lodash';
 import validateEmails from "../../utils/validateEmails";
 // Redux
 import { connect } from "react-redux";
-import { saveContact, fetchContact } from "../../actions";
+import { saveContact, fetchContact, fetchContacts } from "../../actions";
 import { Field, reduxForm } from "redux-form";
 
 // Fields
@@ -14,6 +14,10 @@ class UserForm extends Component {
   formSubmit(values) {
     this.props.saveContact(values, () => {
       this.props.userCreatedCallback(values);
+
+      // re-fetch records
+        console.log('re-fetch contacts', this.props.filter);
+       this.props.fetchContacts(this.props.filter);
     });
   }
 
@@ -74,9 +78,10 @@ class UserForm extends Component {
   }
 }
 
-function mapStateToProps({ selected_contact }) {
+function mapStateToProps(state) {
   return {
-    initialValues: selected_contact
+    filter: state.filter,
+    initialValues: state.selected_contact
   };
 }
 
@@ -98,7 +103,7 @@ function validate(values) {
   return errors;
 }
 
-export default connect(mapStateToProps, { fetchContact, saveContact })(
+export default connect(mapStateToProps, { fetchContact, fetchContacts, saveContact })(
   reduxForm({
     form: "NewUserForm",
     validate: validate,
