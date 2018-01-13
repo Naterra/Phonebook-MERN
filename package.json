@@ -8,14 +8,14 @@
     "npm": "5.5.1"
   },
   "scripts": {
-    "start": "node dist/index.js",
-    "prod:compile_server": "babel server -d dist --presets es2015,stage-1",
+    "start": "node server/build/index.js",
+    "prod:compile_server": "babel server -d server/build --presets es2015,stage-1",
     "prod:compile_client": "npm run build --prefix client",
     "prod:compile_server_client": "babel server -d server/build --presets es2015,stage-1 && npm run build --prefix client",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
     "server": "nodemon --exec   babel-node server/index.js",
     "client": "npm run start --prefix client",
-    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client && npm run prod:compile_server"
   },
   "author": "",
   "license": "ISC",
