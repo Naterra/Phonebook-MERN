@@ -1,8 +1,10 @@
 # dependencies
 /node_modules
 
+
 # production
-/dist
+/server_build
+/config/config.json
 
 npm-debug.log
 .DS_Store
