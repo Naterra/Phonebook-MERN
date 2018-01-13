@@ -1,4 +1,4 @@
-## Phonebook - MERN App example
+# Phonebook - MERN App 
 
 <img width="1075" alt="screen shot 2018-01-12 at 2 30 03 pm" src="https://user-images.githubusercontent.com/8204364/34891950-6b17fe48-f7a5-11e7-9e6e-ad14e68b0cf9.png">
 

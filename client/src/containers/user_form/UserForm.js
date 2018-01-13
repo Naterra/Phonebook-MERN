@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import _ from 'lodash';
 import validateEmails from "../../utils/validateEmails";
+import {validateZipcode} from "../../utils/validates";
+
 // Redux
 import { connect } from "react-redux";
 import { saveContact, fetchContact, fetchContacts } from "../../actions";
@@ -93,13 +95,20 @@ function validate(values) {
     return elem.reguired === true;
   });
 
+  // Required fields
   _.each(required_fields, ({ name }) => {
     if (!values[name]) {
       errors[name] = "You must provide a value";
     }
   });
 
-  errors.Email = validateEmails(values.Email || "");
+  errors.email = validateEmails(values.email || "");
+
+
+  if(values.zip ){
+      errors.zip = validateZipcode(values.zip  );
+  }
+
   return errors;
 }
 

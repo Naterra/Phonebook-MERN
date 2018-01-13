@@ -7,7 +7,7 @@ const fields = {
   ],
   contact: [
     { label: "Email", name: "email" },
-    { label: "MobileNo", name: "cell_phone" },
+    { label: "MobileNo", name: "cell_phone", placeholder:"123-456-78-90" },
     { label: "Office Number", name: "work_phone" },
     { label: "Fax", name: "fax" }
   ],
