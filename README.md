@@ -21,7 +21,11 @@ This App was build using MERN stack (Mongo/Express/React/Node).
 cd client && npm install
 cd ..
 </code></pre>
-3. Run App on Dev Server
+
+3. Edit config file
+Rename config.dist.json to be config.json and insert you database settings
+
+4. Run App on Dev Server
 
 <pre>
 <code>npm run dev
