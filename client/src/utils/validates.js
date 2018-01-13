@@ -12,7 +12,7 @@ export const validateZipcode = function(zipcode){
 };
 
 export const validatePhonenumber = function(val){
-    const validPhone =   re_zipcode.test(val) ;
+    const validPhone =   re_phone_numbe.test(val) ;
 
     console.log('validPhone', validPhone);
 

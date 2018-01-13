@@ -21,7 +21,7 @@ class Paging extends Component {
 	}
 
 	componentWillReceiveProps(nextProps) {
-	  console.log(nextProps, 'componentWillReceiveProps');
+	  //console.log(nextProps, 'componentWillReceiveProps');
 		this.getPager(nextProps);
 	}
 
@@ -53,26 +53,19 @@ class Paging extends Component {
 
 		//if on begining and less then in half of way
 		if (currentPage   <= page_offset) {
-		  console.log('begining');
-			startPage = 1;
+		    startPage = 1;
 			endPage = totalPages>visiblePages ? visiblePages : totalPages;
 		}
 		// If on the end of list
         else if (currentPage + page_offset >= totalPages) {
-            console.log('nearby END');
-			//if close to end
-			startPage = totalPages - visiblePages+1;
+           	startPage = totalPages - visiblePages+1;
 			endPage = totalPages;
 		} else {
-            console.log('REGULAR PAGING');
-			startPage = currentPage - page_offset + 1;
+          	startPage = currentPage - page_offset + 1;
 			endPage = currentPage + page_offset;
 		}
 
-        console.warn('Total_records:'+param.total_records+' totalPages:'+totalPages+' currentPage:'+currentPage+' page_offset:'+page_offset );
-
-
-
+        //console.warn('Total_records:'+param.total_records+' totalPages:'+totalPages+' currentPage:'+currentPage+' page_offset:'+page_offset );
 		let pages = _.range(parseInt(startPage, 10), parseInt(endPage, 10) + 1);
 
 		this.setState({
