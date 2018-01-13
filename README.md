@@ -30,11 +30,17 @@ Your App will be automatically opened at localhost:3000
 
 ## Deployment
 
-1 Compile <b>server/index.js</b> and <b>./client/</b>
+1. Download and install the <a href="https://devcenter.heroku.com/articles/heroku-command-line">Heroku CLI</a>.
 
-Run:
 <pre>
-<code>npm run prod:compile_server_client
+<code>heroku login</code>
+</pre>
+
+2. Deploy your changes
+ 
+<pre>
+<code>git add .
+git commit -am "make it better"
 git push heroku master
 heroku open</code>
 </pre>
