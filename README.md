@@ -36,7 +36,14 @@ Your App will be automatically opened at localhost:3000
 <code>heroku login</code>
 </pre>
 
-2. Deploy your changes
+2. Initialize a git repository 
+<pre>
+<code>cd my-project-name/
+git init
+heroku git:remote -a my-project-name</code>
+</pre>
+ 
+3. Deploy your changes
  
 <pre>
 <code>git add .
