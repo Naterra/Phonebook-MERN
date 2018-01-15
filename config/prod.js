@@ -1,7 +1,7 @@
 const prod = {
     "apiPrefix": "http://localhost:3001/",
     "serverPort": "3001",
-    "mongo_URL":  process.env.MONGO_URI,
+    "mongo_URL":  process.env.mongo_URL,
     "db":{
         "name": "phonebook",
         "user": "naterra",
