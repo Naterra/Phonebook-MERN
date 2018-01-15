@@ -1,15 +1,29 @@
 // keys.js - figure out what set of credentials to return
-import  prod_conf from  './prod';
-import  dev_conf  from  './dev';
-
-let config;
 
 if(process.env.NODE_ENV === 'production'){
-    config =  prod_conf;
-
+    // we are in production
+    module.exports = require('./prod');
 }else{
-    config =  dev_conf;
-}
- //console.log(config, 'config');
+    // we are in developement
 
-export default config;
+    module.exports = require('./dev');
+}
+
+
+
+
+
+// import  prod_conf from  './prod';
+// import  dev_conf  from  './dev';
+//
+// let config;
+//
+// if(process.env.NODE_ENV === 'production'){
+//     config =  prod_conf;
+//
+// }else{
+//     config =  dev_conf;
+// }
+//  //console.log(config, 'config');
+//
+// export default config;
