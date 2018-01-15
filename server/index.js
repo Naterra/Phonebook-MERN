@@ -2,8 +2,10 @@ import express from 'express';
 import bodyParser from 'body-parser';
 import cors from 'cors';
 import * as db from './db/db';
-import { serverPort } from '../config/config.json';
+import config from '../config/config.js';
 import faker from 'faker';
+
+console.log(config, 'config');
 
 // Initialization of express application
 const app = express();
@@ -19,7 +21,7 @@ app.use(bodyParser.json());
 
 // Allow requests from any origin
 app.use(cors({ origin: '*' }));
-app.set('port', process.env.PORT || serverPort);
+app.set('port', process.env.PORT || config.serverPort);
 
 // Save/Update Contact
 app.post('/api/save_contact/', (req, res) => {

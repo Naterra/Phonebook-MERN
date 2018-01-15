@@ -4,7 +4,7 @@
 
 # production
 /server_build
-config/config.json
+/config/dev.js
 
 npm-debug.log
 .DS_Store

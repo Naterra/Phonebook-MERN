@@ -22,8 +22,8 @@ cd client && npm install
 cd ..
 </code></pre>
 
-3. Edit config file
-Rename config.dist.json to be config.json and insert you database settings
+3. Edit config file.<br>
+Rename config/dev.dist.js to be dev.js and insert you database settings
 
 4. Run App on Dev Server
 

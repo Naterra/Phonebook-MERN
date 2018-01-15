@@ -1,6 +1,6 @@
 import axios from 'axios';
 import * as types from './types';
-// import {apiPrefix} from "../../../config/config.json";
+
 
 // axios.defaults.baseURL = 'http://phonebook.app/new_phonebook/';
 //axios.defaults.baseURL =  'http://localhost:3001/';
