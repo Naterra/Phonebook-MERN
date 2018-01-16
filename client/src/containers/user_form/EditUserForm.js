@@ -20,7 +20,6 @@ class EditUserForm extends Component {
     formSubmit(values) {
         this.props.saveContact(values, () => {
             this.props.onSubmitCallback();
-            // this.props.history.push('/');
         });
     }
 

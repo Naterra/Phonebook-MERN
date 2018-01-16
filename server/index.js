@@ -26,7 +26,6 @@ app.set('port', process.env.PORT || config.serverPort);
 // Save/Update Contact
 app.post('/api/save_contact/', (req, res) => {
 	const id = req.body._id;
-	console.log('Id === ', id);
 
 	if (id) {
 		Contact.findOneAndUpdate({ _id: id }, req.body, (err, user) => {
@@ -110,8 +109,6 @@ app.get('/api/generate-fake-data', (req, res) => {
 	}
 	res.redirect('/');
 });
-
-// });
 
 if (process.env.NODE_ENV === 'production') {
 	// Express will serve up production assets

@@ -6,10 +6,10 @@ import ContactReducer from './reducer_contact';
 import FilterReducer from './reducer_filter';
 
 const rootReducer = combineReducers({
-    selected_contact:ContactReducer,
-    contacts:ContactsReducer,
-    filter: FilterReducer,
-    form: formReducer
+	selected_contact: ContactReducer,
+	contacts: ContactsReducer,
+	filter: FilterReducer,
+	form: formReducer
 });
 
 export default rootReducer;

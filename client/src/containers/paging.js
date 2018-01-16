@@ -21,7 +21,6 @@ class Paging extends Component {
 	}
 
 	componentWillReceiveProps(nextProps) {
-	  //console.log(nextProps, 'componentWillReceiveProps');
 		this.getPager(nextProps);
 	}
 
@@ -34,9 +33,8 @@ class Paging extends Component {
 	}
 
 	goToLast(e) {
-
 		this.props.set_filter_page(this.state.total_pages);
-        console.log(this.state, 'goToLast');
+		console.log(this.state, 'goToLast');
 	}
 
 	getPager(param) {
@@ -52,20 +50,18 @@ class Paging extends Component {
 		let startPage, endPage;
 
 		//if on begining and less then in half of way
-		if (currentPage   <= page_offset) {
-		    startPage = 1;
-			endPage = totalPages>visiblePages ? visiblePages : totalPages;
-		}
-		// If on the end of list
-        else if (currentPage + page_offset >= totalPages) {
-           	startPage = totalPages - visiblePages+1;
+		if (currentPage <= page_offset) {
+			startPage = 1;
+			endPage = totalPages > visiblePages ? visiblePages : totalPages;
+		} else if (currentPage + page_offset >= totalPages) {
+			// If on the end of list
+			startPage = totalPages - visiblePages + 1;
 			endPage = totalPages;
 		} else {
-          	startPage = currentPage - page_offset + 1;
+			startPage = currentPage - page_offset + 1;
 			endPage = currentPage + page_offset;
 		}
 
-        //console.warn('Total_records:'+param.total_records+' totalPages:'+totalPages+' currentPage:'+currentPage+' page_offset:'+page_offset );
 		let pages = _.range(parseInt(startPage, 10), parseInt(endPage, 10) + 1);
 
 		this.setState({

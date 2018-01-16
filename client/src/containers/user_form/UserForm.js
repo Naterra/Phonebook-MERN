@@ -1,122 +1,110 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
 import _ from 'lodash';
-import validateEmails from "../../utils/validateEmails";
-import {validateZipcode} from "../../utils/validates";
+import validateEmails from '../../utils/validateEmails';
+import { validateZipcode } from '../../utils/validates';
 
 // Redux
-import { connect } from "react-redux";
-import { saveContact, fetchContact, fetchContacts } from "../../actions";
-import { Field, reduxForm } from "redux-form";
+import { connect } from 'react-redux';
+import { saveContact, fetchContact, fetchContacts } from '../../actions';
+import { Field, reduxForm } from 'redux-form';
 
 // Fields
-import formFields from "./formFields";
-import formFieldsTempl from "./formFieldTempl";
+import formFields from './formFields';
+import formFieldsTempl from './formFieldTempl';
 
 class UserForm extends Component {
-  formSubmit(values) {
-    this.props.saveContact(values, () => {
-      this.props.userCreatedCallback(values);
+	formSubmit(values) {
+		this.props.saveContact(values, () => {
+			this.props.userCreatedCallback(values);
 
-      // re-fetch records
-        console.log('re-fetch contacts', this.props.filter);
-       this.props.fetchContacts(this.props.filter);
-    });
-  }
+			// re-fetch records
+			console.log('re-fetch contacts', this.props.filter);
+			this.props.fetchContacts(this.props.filter);
+		});
+	}
 
-  renderFields(array = []) {
-    return array.map(field => {
-      return (
-        <Field
-          key={field.name}
-          name={field.name}
-          component={formFieldsTempl}
-          label={field.label}
-          type={field.type ? field.type : "text"}
-        />
-      );
-    });
-  }
-  renderContent() {
-    const { handleSubmit } = this.props;
+	renderFields(array = []) {
+		return array.map(field => {
+			return (
+				<Field
+					key={field.name}
+					name={field.name}
+					component={formFieldsTempl}
+					label={field.label}
+					type={field.type ? field.type : 'text'}
+				/>
+			);
+		});
+	}
+	renderContent() {
+		const { handleSubmit } = this.props;
 
-    return (
-      <div className="row">
-        <form
-          className="col s12"
-          onSubmit={handleSubmit(this.formSubmit.bind(this))}
-        >
-          <div className="row">
-            <div className="col s6"> {this.renderFields(formFields.pers)}</div>
-            <div className="col s6">
-              {this.renderFields(formFields.address)}
-            </div>
-          </div>
+		return (
+			<div className="row">
+				<form className="col s12" onSubmit={handleSubmit(this.formSubmit.bind(this))}>
+					<div className="row">
+						<div className="col s6"> {this.renderFields(formFields.pers)}</div>
+						<div className="col s6">{this.renderFields(formFields.address)}</div>
+					</div>
 
-          <br />
-          <div className="row">
-            <div className="col s12">
-              {" "}
-              {this.renderFields(formFields.contact)}
-            </div>
-          </div>
-          <div className="row">
-            <div className="col s12">
-              {" "}
-              {this.renderFields(formFields.other)}
-            </div>
-          </div>
+					<br />
+					<div className="row">
+						<div className="col s12"> {this.renderFields(formFields.contact)}</div>
+					</div>
+					<div className="row">
+						<div className="col s12"> {this.renderFields(formFields.other)}</div>
+					</div>
 
-          <button type="submit" className="teal btn-flat right white-text">
-            Save
-            <i className="material-icons right">done</i>
-          </button>
-        </form>
-      </div>
-    );
-  }
+					<button type="submit" className="teal btn-flat right white-text">
+						Save
+						<i className="material-icons right">done</i>
+					</button>
+				</form>
+			</div>
+		);
+	}
 
-  render() {
-    return <div>{this.renderContent()}</div>;
-  }
+	render() {
+		return <div>{this.renderContent()}</div>;
+	}
 }
 
 function mapStateToProps(state) {
-  return {
-    filter: state.filter,
-    initialValues: state.selected_contact
-  };
+	return {
+		filter: state.filter,
+		initialValues: state.selected_contact
+	};
 }
 
 function validate(values) {
-  const errors = {};
+	const errors = {};
 
-  let all_fields = [].concat(formFields.pers, formFields.contact);
-  let required_fields = all_fields.filter(elem => {
-    return elem.reguired === true;
-  });
+	let all_fields = [].concat(formFields.pers, formFields.contact);
+	let required_fields = all_fields.filter(elem => {
+		return elem.reguired === true;
+	});
 
-  // Required fields
-  _.each(required_fields, ({ name }) => {
-    if (!values[name]) {
-      errors[name] = "You must provide a value";
-    }
-  });
+	// Required fields
+	_.each(required_fields, ({ name }) => {
+		if (!values[name]) {
+			errors[name] = 'You must provide a value';
+		}
+	});
 
-  errors.email = validateEmails(values.email || "");
+	errors.email = validateEmails(values.email || '');
 
+	if (values.zip) {
+		errors.zip = validateZipcode(values.zip);
+	}
 
-  if(values.zip ){
-      errors.zip = validateZipcode(values.zip  );
-  }
-
-  return errors;
+	return errors;
 }
 
 export default connect(mapStateToProps, { fetchContact, fetchContacts, saveContact })(
-  reduxForm({
-    form: "NewUserForm",
-    validate: validate,
-    enableReinitialize: false,
-    keepDirtyOnReinitialize: false
-  })(UserForm)
+	reduxForm({
+		form: 'NewUserForm',
+		validate: validate,
+		enableReinitialize: false,
+		keepDirtyOnReinitialize: false
+	})(UserForm)
 );
